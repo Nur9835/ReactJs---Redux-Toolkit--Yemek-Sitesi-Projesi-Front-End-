@@ -1,0 +1,221 @@
+.header {
+    /* .header demek classı header olanlar */
+    /* toplam ekran genişliği kadar olsun genişliği */
+    width: 100%;
+    /* yükseklik 100px olsun */
+    height: 100px;
+
+    /* Satırlar arasındaki yüksekliği */
+    line-height: 100px; 
+  }
+
+  
+  .logo {
+    /* metni ortalar */
+    text-align: center;
+  }
+  .logo img {
+    /* toplam genişlikten %60 ı çıkartılarak verilir */
+    width: calc(100% - 60%);
+
+    /* görüntü için
+     Görüntü en boy oranını korur, 
+     ancak verilen boyuta sığması için yeniden boyutlandırılır */
+    object-fit: contain;
+
+    /* (- dediği için tam tersi yukarı doğru 40px çıkar
+     margin top:40 olsaydı 
+    ağağı dopru  40px  gider derdim) */
+    margin-top: -40px;
+  }
+  
+  .logo h5 {
+    /* yazı kalınlığı */
+    font-weight: 600;
+
+ /* yazı tipinin (fontun) boyutunu belirlemek */
+    font-size: 1rem;
+
+    color: #212245;
+
+    margin-top: -40px;
+
+ /* kendi yorumum : default*/
+    margin-bottom: 0;
+  }
+  
+
+  .menu a {
+    /* .menu classname in a tagları */
+    font-weight: 600;
+    font-size: 1rem;
+    color: #212245;
+
+    /* geçiş efekti */
+    transition: 0.3s;
+  }
+  
+  .menu a:hover {
+    color: #df2020;
+  }
+  
+  .active__menu {
+    /* aktif olan menünün rengi hep kırmızı olsun */
+    color: #df2020 !important;
+  }
+  
+  .cart__icon i,
+  .user i,
+  .mobile__menu i {
+    font-size: 1.3rem;
+    color: #212245;
+    /* cursor : fare imlecini değiştir */
+    cursor: pointer;
+  }
+  
+  .cart__icon {
+    /* kapsayıcı */
+    position: relative;
+  }
+  
+  .cart__badge {
+    /* sepetteki ürün sayısını gösteren */
+    position: absolute;
+    /* aşağı doğru 30px iner  */
+    top: 30px;
+    /* sağa doğru 10 px gider */
+    right: -10px;
+    background: #df2020;
+    color: #fff;
+    width: 15px;
+    height: 15px;
+    /* kenarlarına ovallik verir yuvarlakımsı olur orana göre */
+    border-radius: 50%;
+
+    /* yazı tipinin (fontun) boyutunu belirlemek 
+     */
+    font-size: 0.8rem;
+
+     /* yazı kalınlığı */
+    font-weight: 500;
+
+    /* flexde esnekiğe başlar */
+    display: flex;
+    /* dikeyde ortala */
+    align-items: center;
+    /* yatayda ortala */
+    justify-content: center;
+  }
+  
+  .mobile__menu {
+    font-weight: 600;
+/* display:none içeriği ile gizlenecek 
+    ve yok sayılacaktır.web sayfasında gösterilmez */
+
+    /* menü işareti görünmesin */
+    display: none;
+  }
+  
+  .header__shrink {
+    /* nesneyi o noktada sabitler */
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: #fff;
+    /* z indexi ayarla */
+    z-index: 99999;
+    /* kutuyu gölgelendirme yatay dikey bulanıklık oranı renk */
+    box-shadow: 5px 5px 15px -5px #fde4e4;
+  }
+
+
+  
+  @media only screen and (max-width: 992px) 
+  {
+    .logo img {
+      width: calc(100% - 70%);
+    }
+    .logo h5 {
+      font-size: 0.8rem;
+      margin-top: -15px;
+    }
+  
+    .navigation {
+  /* Tarayıcının viewport' una bağlı olarak 
+ sabit bir yerde konumlanan nesneler oluşturmak 
+istiyorsak position fixed kullanmamız gerekiyor.
+Tarayıcının viewport' una bağlı olarak derken
+ kastedilen yatay ve dikey kaydırma 
+çubuklarının kullanılmasına rağmen 
+ nesnenin konumu hep sabit kalmasındandır */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      /* toplam ekran yükseliği kadar olsun */
+      height: 100%;
+      background: rgba(0, 0, 0, 0.425);
+      z-index: 99;
+      /* başta gösterme */
+      display: none;
+    }
+  
+    .menu {
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 100%;
+      background: #fff;
+      /* flex yapısı yukardan ağaşı doğru */
+      flex-direction: column;
+      /* yatayda ortala */
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      /* satırlar arası yükseklik */
+      line-height: 20px;
+    }
+  
+    .menu a {
+        /* yazı boyutu */
+      font-size: 0.9rem;
+    }
+  
+    .mobile__menu {
+
+   /* display:inline; da olduğu gibi satır içi yan yana dizebilirsiniz. */
+   /* display:block; görünümde alt alta geleceklerdir */
+  /* menü isareti bu ekran aralığında block şeklinde görünsün */
+   display: block;
+    }
+  
+    .cart__icon i,
+    .user i,
+    .mobile__menu i {
+      font-size: 1rem;
+    }
+  
+    .show__menu {
+   /* display:block; görünümde alt alta geleceklerdir */
+      display: block;
+    }
+
+
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .header {
+      width: 100%;
+      height: 80px;
+      line-height: 80px;
+    }
+  
+    .logo img {
+      margin-top: -70px !important;
+    }
+    .logo h5 {
+      margin-top: -55px;
+    }
+  }
